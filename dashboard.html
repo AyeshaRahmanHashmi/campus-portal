@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | KICSIT University Student Portal</title>
+  <meta name="description" content="Student dashboard with registered courses, attendance, pending assignments and upcoming events.">
+  <link rel="icon" href="images/kicsitLogo.svg" type="image/svg+xml">
+  <script src="js/theme-init.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <span>Fall Semester 2026</span>
+      <span>Student Services Desk: Monday to Friday, 8:30 am to 4:30 pm</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html" aria-label="KICSIT University Student Portal, home">
+        <img class="brand__mark" src="images/kicsitLogo.svg" alt="" width="40" height="40">
+        <span>
+          <span class="brand__name">KICSIT University</span>
+          <span class="brand__sub">Student Portal</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="primaryNav">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="sr-only">Menu</span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="dashboard.html" aria-current="page">Dashboard</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="tasks.html">Tasks</a></li>
+          <li><a href="profile.html">Profile</a></li>
+        </ul>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false">Dark mode</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="page-header">
+      <div class="container">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li aria-current="page">Dashboard</li>
+          </ol>
+        </nav>
+        <h1>Student dashboard</h1>
+        <p id="dashboardGreeting">A summary of your Fall 2026 semester: courses, attendance, assignments and events.</p>
+      </div>
+    </div>
+
+    <section class="section" aria-labelledby="overviewTitle">
+      <div class="container">
+        <h2 class="sr-only" id="overviewTitle">Academic overview</h2>
+        <div class="grid" id="dashboardStats"></div>
+      </div>
+    </section>
+
+    <section class="section section--alt section--flush-top" aria-label="Details">
+      <div class="container" style="padding-top: clamp(2.25rem, 5vw, 3.75rem);">
+        <div class="grid grid--align-start">
+          <div class="col-lg-7">
+            <div class="card">
+              <h2 class="card__title">Attendance by course</h2>
+              <ul class="meter-list" id="attendanceList"></ul>
+              <p class="text-muted mt-4">Bars shown in red are below 85 percent. The minimum required attendance is 75 percent.</p>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="card">
+              <h2 class="card__title">Pending assignments</h2>
+              <ul class="compact-list" id="dashboardTasks"></ul>
+              <p class="mt-4"><a class="btn btn--outline btn--sm" href="tasks.html">Open task manager</a></p>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card">
+              <h2 class="card__title">Upcoming events</h2>
+              <ul class="event-list" id="dashboardEvents"></ul>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="card">
+              <h2 class="card__title">Registered courses</h2>
+              <ul class="compact-list" id="dashboardCourses"></ul>
+              <p class="mt-4"><a class="btn btn--outline btn--sm" href="courses.html">Full course catalogue</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__main">
+      <div class="grid">
+        <div class="col-md-6 col-lg-4">
+          <a class="brand" href="index.html" aria-label="KICSIT University Student Portal, home">
+            <img class="brand__mark" src="images/kicsitLogo.svg" alt="" width="40" height="40">
+            <span>
+              <span class="brand__name">KICSIT University</span>
+              <span class="brand__sub">Student Portal</span>
+            </span>
+          </a>
+          <p>Maintained by the Office of the Registrar. The portal brings course records, class timings, notices and coursework deadlines together for enrolled students.</p>
+        </div>
+
+        <div class="col-sm-6 col-lg-2">
+          <h2 class="footer-title">Portal pages</h2>
+          <ul class="footer-list">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="schedule.html">Class schedule</a></li>
+            <li><a href="tasks.html">Task manager</a></li>
+            <li><a href="profile.html">Student profile</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <h2 class="footer-title">Contact</h2>
+          <address>
+            Office of the Registrar<br>
+            Administration Block, Room 5<br>
+            Y-Cross, Kahuta, Rawalpindi<br>
+            Phone: +92 51 000 0000<br>
+            Email: <a href="mailto:registrar@KICSIT.example">registrar@KICSIT.example</a>
+          </address>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <h2 class="footer-title">Office hours</h2>
+          <ul class="footer-list footer-list--plain">
+            <li><span>Registrar</span><span>8:30 am to 4:30 pm</span></li>
+            <li><span>Accounts</span><span>9:00 am to 3:00 pm</span></li>
+            <li><span>Examination Office</span><span>9:00 am to 4:00 pm</span></li>
+            <li><span>Library</span><span>8:00 am to 10:00 pm</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <div class="container">
+        <span>&copy; <span id="currentYear">2026</span> KICSIT University. All rights reserved.</span>
+        <span>Student Portal front-end prototype, version 1.0</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

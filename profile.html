@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profile | KICSIT University Student Portal</title>
+  <meta name="description" content="Student registration and profile form with inline validation.">
+  <link rel="icon" href="images/kicsitLogo.svg" type="image/svg+xml">
+  <script src="js/theme-init.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <span>Fall Semester 2026</span>
+      <span>Student Services Desk: Monday to Friday, 9:30 am to 4:30 pm</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html" aria-label="KICSIT University Student Portal, home">
+        <img class="brand__mark" src="images/kicsitLogo.svg" alt="" width="40" height="40">
+        <span>
+          <span class="brand__name">KICSIT University</span>
+          <span class="brand__sub">Student Portal</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="primaryNav">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="sr-only">Menu</span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="tasks.html">Tasks</a></li>
+          <li><a href="profile.html" aria-current="page">Profile</a></li>
+        </ul>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false">Dark mode</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="page-header">
+      <div class="container">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li aria-current="page">Profile</li>
+          </ol>
+        </nav>
+        <h1>Student registration and profile</h1>
+        <p>Enter your details exactly as they appear on your admission record. Each field is checked as you complete it.</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid grid--align-start">
+          <div class="col-lg-8">
+            <form class="card" id="profileForm" novalidate aria-labelledby="profileFormTitle">
+              <h2 class="card__title" id="profileFormTitle">Student information</h2>
+              <p class="text-muted">Fields marked <span class="req" aria-hidden="true">*</span><span class="sr-only">with an asterisk</span> are required.</p>
+
+              <div class="form-note form-note--success mb-4" id="profileSuccess" role="status" hidden></div>
+
+              <div class="grid grid--tight">
+        <div class="field col-md-6">
+          <label for="fullName">Full name <span class="req" aria-hidden="true">*</span></label>
+          <input id="fullName" name="fullName" type="text" autocomplete="name" placeholder="As on your admission record" required aria-describedby="fullNameError">
+          <p class="field__error" id="fullNameError" aria-live="polite"></p>
+        </div>
+        <div class="field col-md-6">
+          <label for="regNo">Registration number <span class="req" aria-hidden="true">*</span></label>
+          <input id="regNo" name="regNo" type="text" placeholder="2023-BSCS-014" required aria-describedby="regNoHint regNoError">
+          <p class="field__hint" id="regNoHint">Format: 2023-BSCS-014</p>
+          <p class="field__error" id="regNoError" aria-live="polite"></p>
+        </div>
+        <div class="field col-md-6">
+          <label for="email">Email address <span class="req" aria-hidden="true">*</span></label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="name@university.edu.pk" required aria-describedby="emailHint emailError">
+          <p class="field__hint" id="emailHint">Use your university email if you have one.</p>
+          <p class="field__error" id="emailError" aria-live="polite"></p>
+        </div>
+        <div class="field col-md-6">
+          <label for="department">Department <span class="req" aria-hidden="true">*</span></label>
+          <select id="department" name="department" required aria-describedby="departmentError"></select>
+          <p class="field__error" id="departmentError" aria-live="polite"></p>
+        </div>
+        <div class="field col-md-6">
+          <label for="semester">Current semester <span class="req" aria-hidden="true">*</span></label>
+          <select id="semester" name="semester" required aria-describedby="semesterError"></select>
+          <p class="field__error" id="semesterError" aria-live="polite"></p>
+        </div>
+        <div class="field col-md-6">
+          <label for="phone">Phone number <span class="req" aria-hidden="true">*</span></label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="0300-1234567" required aria-describedby="phoneHint phoneError">
+          <p class="field__hint" id="phoneHint">Mobile number, for example 0300-1234567</p>
+          <p class="field__error" id="phoneError" aria-live="polite"></p>
+        </div>
+        <div class="field col-md-6">
+          <label for="password">Password <span class="req" aria-hidden="true">*</span></label>
+          <div class="input-group">
+            <input id="password" name="password" type="password" autocomplete="new-password" required aria-describedby="passwordHint passwordError">
+            <button class="btn btn--outline btn--sm" type="button" data-toggle-password="password" aria-pressed="false">Show</button>
+          </div>
+          <p class="field__hint" id="passwordHint">At least 8 characters with an uppercase letter, a lowercase letter and a number.</p>
+          <div class="strength">
+            <div class="progress" role="progressbar" aria-label="Password strength" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0"><span id="strengthBar" style="width:0"></span></div>
+            <p class="strength__text" id="strengthText" aria-live="polite">Password strength: Not entered</p>
+          </div>
+          <p class="field__error" id="passwordError" aria-live="polite"></p>
+        </div>
+        <div class="field col-md-6">
+          <label for="confirmPassword">Confirm password <span class="req" aria-hidden="true">*</span></label>
+          <div class="input-group">
+            <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password" required aria-describedby="confirmPasswordError">
+            <button class="btn btn--outline btn--sm" type="button" data-toggle-password="confirmPassword" aria-pressed="false">Show</button>
+          </div>
+          <p class="field__error" id="confirmPasswordError" aria-live="polite"></p>
+        </div>
+              </div>
+
+              <div class="form-actions">
+                <button class="btn btn--primary" type="submit">Save profile</button>
+                <button class="btn btn--outline" type="reset">Clear form</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="grid grid--tight">
+              <div>
+                <section class="card" aria-labelledby="savedTitle">
+                  <h2 class="card__title" id="savedTitle">Saved on this device</h2>
+                  <div id="savedProfile"></div>
+                  <p class="mt-4" style="margin-top:1rem;"><button class="btn btn--danger btn--sm" type="button" id="removeProfile" hidden>Remove saved profile</button></p>
+                </section>
+              </div>
+              <div>
+                <section class="card card--flat" aria-labelledby="rulesTitle">
+                  <h2 class="card__title" id="rulesTitle">Input requirements</h2>
+                  <ul class="requirement-list">
+                    <li>Registration number: year, programme code and three digits.</li>
+                    <li>Email: a complete address with a domain.</li>
+                    <li>Password: 8 or more characters, mixed case, with a number.</li>
+                    <li>Your password is checked in the browser and is never saved.</li>
+                  </ul>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__main">
+      <div class="grid">
+        <div class="col-md-6 col-lg-4">
+          <a class="brand" href="index.html" aria-label="KICSIT University Student Portal, home">
+            <img class="brand__mark" src="images/kicsitLogo.svg" alt="" width="40" height="40">
+            <span>
+              <span class="brand__name">KICSIT University</span>
+              <span class="brand__sub">Student Portal</span>
+            </span>
+          </a>
+          <p>Maintained by the Office of the Registrar. The portal brings course records, class timings, notices and coursework deadlines together for enrolled students.</p>
+        </div>
+
+        <div class="col-sm-6 col-lg-2">
+          <h2 class="footer-title">Portal pages</h2>
+          <ul class="footer-list">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="schedule.html">Class schedule</a></li>
+            <li><a href="tasks.html">Task manager</a></li>
+            <li><a href="profile.html">Student profile</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <h2 class="footer-title">Contact</h2>
+          <address>
+            Office of the Registrar<br>
+            Administration Block, Room 5<br>
+            Y-Cross, Kahuta, Rawalpindi<br>
+            Phone: +92 51 000 0000<br>
+            Email: <a href="mailto:registrar@KICSIT.example">registrar@KICSIT.example</a>
+          </address>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <h2 class="footer-title">Office hours</h2>
+          <ul class="footer-list footer-list--plain">
+            <li><span>Registrar</span><span>8:30 am to 4:30 pm</span></li>
+            <li><span>Accounts</span><span>9:00 am to 3:00 pm</span></li>
+            <li><span>Examination Office</span><span>9:00 am to 4:00 pm</span></li>
+            <li><span>Library</span><span>8:00 am to 10:00 pm</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <div class="container">
+        <span>&copy; <span id="currentYear">2026</span> KICSIT University. All rights reserved.</span>
+        <span>Student Portal front-end prototype, version 1.0</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

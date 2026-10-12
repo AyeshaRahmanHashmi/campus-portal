@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home | KICSIT University Student Portal</title>
+  <meta name="description" content="KICSIT University Student Portal: course records, class timings and coursework deadlines in one place.">
+  <link rel="icon" href="images/kicsitLogo.svg" type="image/svg+xml">
+  <script src="js/theme-init.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <span>Fall Semester 2026</span>
+      <span>Student Services Desk: Monday to Friday, 9:30 am to 4:30 pm</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html" aria-label="KICSIT University Student Portal, home">
+        <img class="brand__mark" src="images/kicsitLogo.svg" alt="" width="40" height="40">
+        <span>
+          <span class="brand__name">KICSIT University</span>
+          <span class="brand__sub">Student Portal</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="primaryNav">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="sr-only">Menu</span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="tasks.html">Tasks</a></li>
+          <li><a href="profile.html">Profile</a></li>
+        </ul>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false">Dark mode</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="container">
+        <div class="grid grid--align-center">
+          <div class="col-lg-7">
+            <p class="eyebrow">Fall Semester 2026, BS Computer Science</p>
+            <h1 id="heroTitle">Welcome to KICSIT Student Portal</h1>
+            <p class="hero__lead">Check your registered courses, see where your next class is held, track coursework due dates and read official notices without moving between separate pages and notice boards.</p>
+            <div class="btn-row">
+              <a class="btn btn--accent" href="dashboard.html">Open your dashboard</a>
+              <a class="btn btn--outline-light" href="courses.html">Browse course catalogue</a>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <aside class="card glance" aria-labelledby="glanceTitle">
+              <h2 class="card__title" id="glanceTitle">Coming up next</h2>
+              <dl class="glance__list" id="heroGlance"></dl>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <section class="section" aria-labelledby="welcomeTitle">
+      <div class="container">
+        <div class="grid grid--align-start">
+          <div class="col-lg-7">
+            <h2 id="welcomeTitle">Welcome to the KICSIT University Student Portal</h2>
+            <p>Course details, faculty contacts, notices and assignment deadlines have until now been published in separate places. The Student Portal collects them in a single site that works on a phone, a tablet or a desktop computer.</p>
+            <p>Use the dashboard for a summary of your semester, the course catalogue to look up instructors and credit hours, and the task manager to record coursework deadlines. Tasks and preferences you save here stay in your own browser.</p>
+          </div>
+          <div class="col-lg-5">
+            <div class="card card--flat">
+              <h3 class="card__title">Semester calendar</h3>
+              <dl class="fact-list">
+                <div><dt>Current term</dt><dd>Fall 2026</dd></div>
+                <div><dt>Classes began</dt><dd>7 September 2026</dd></div>
+                <div><dt>Withdrawal deadline</dt><dd>30 October 2026</dd></div>
+                <div><dt>Mid-term examinations</dt><dd>16 to 27 November 2026</dd></div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <section class="section" aria-labelledby="quickTitle">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="quickTitle">Quick access</h2>
+          <p>Go straight to the part of the portal you need.</p>
+        </div>
+        <div class="grid">
+          <div class="col-sm-6 col-lg-4">
+            <a class="card card--link quick-card" href="dashboard.html">
+              <span class="quick-card__index">01</span>
+              <h3>Student dashboard</h3>
+              <p>Registered courses, attendance, pending assignments and upcoming events at a glance.</p>
+              <span class="quick-card__go">Open dashboard</span>
+            </a>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <a class="card card--link quick-card" href="courses.html">
+              <span class="quick-card__index">02</span>
+              <h3>Course catalogue</h3>
+              <p>Search by course name or code and filter by semester or enrolment status.</p>
+              <span class="quick-card__go">Browse courses</span>
+            </a>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <a class="card card--link quick-card" href="schedule.html">
+              <span class="quick-card__index">03</span>
+              <h3>Weekly class schedule</h3>
+              <p>Days, timings, instructors and rooms for every lecture and lab this semester.</p>
+              <span class="quick-card__go">View timetable</span>
+            </a>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <a class="card card--link quick-card" href="tasks.html">
+              <span class="quick-card__index">04</span>
+              <h3>Assignment task manager</h3>
+              <p>Record coursework with a due date and priority, then mark it complete when submitted.</p>
+              <span class="quick-card__go">Manage tasks</span>
+            </a>
+          </div>
+          
+          <div class="col-sm-6 col-lg-4">
+            <a class="card card--link quick-card" href="profile.html">
+              <span class="quick-card__index">06</span>
+              <h3>Student profile</h3>
+              <p>Register your details and check them against the university's format requirements.</p>
+              <span class="quick-card__go">Update profile</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="eventsTitle">
+      <div class="container">
+        <div class="grid grid--align-start">
+          <div class="col-lg-8">
+            <div class="card">
+              <h2 class="card__title" id="eventsTitle">Upcoming events</h2>
+              <ul class="event-list" id="homeEvents"></ul>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card">
+              <h2 class="card__title">Student Services Desk</h2>
+              <p>For problems with course registration, fee records or portal access, visit the desk in person or write to the Registrar.</p>
+              <dl class="fact-list">
+                <div><dt>Location</dt><dd>Administration Block, Room 12</dd></div>
+                <div><dt>Hours</dt><dd>8:30 am to 4:30 pm</dd></div>
+                <div><dt>Phone</dt><dd>+92 51 000 0000</dd></div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__main">
+      <div class="grid">
+        <div class="col-md-6 col-lg-4">
+          <a class="brand" href="index.html" aria-label="KICSIT University Student Portal, home">
+            <img class="brand__mark" src="images/kicsitLogo.svg" alt="" width="40" height="40">
+            <span>
+              <span class="brand__name">KICSIT University</span>
+              <span class="brand__sub">Student Portal</span>
+            </span>
+          </a>
+          <p>Maintained by the Office of the Registrar. The portal brings course records, class timings, notices and coursework deadlines together for enrolled students.</p>
+        </div>
+
+        <div class="col-sm-6 col-lg-2">
+          <h2 class="footer-title">Portal pages</h2>
+          <ul class="footer-list">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="schedule.html">Class schedule</a></li>
+            <li><a href="tasks.html">Task manager</a></li>
+            <li><a href="profile.html">Student profile</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <h2 class="footer-title">Contact</h2>
+          <address>
+            Office of the Registrar<br>
+            Administration Block, Room 5<br>
+            Y-Cross, Kahuta, Rawalpindi<br>
+            Phone: +92 51 000 0000<br>
+            Email: <a href="mailto:registrar@KICSIT.example">registrar@KICSIT.example</a>
+          </address>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <h2 class="footer-title">Office hours</h2>
+          <ul class="footer-list footer-list--plain">
+            <li><span>Registrar</span><span>8:30 am to 4:30 pm</span></li>
+            <li><span>Accounts</span><span>9:00 am to 3:00 pm</span></li>
+            <li><span>Examination Office</span><span>9:00 am to 4:00 pm</span></li>
+            <li><span>Library</span><span>8:00 am to 10:00 pm</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <div class="container">
+        <span>&copy; <span id="currentYear">2026</span> KICSIT University. All rights reserved.</span>
+        <span>Student Portal front-end prototype, version 1.0</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/slider.js"></script>
+</body>
+</html>

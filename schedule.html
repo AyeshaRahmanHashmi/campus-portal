@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Schedule | KICSIT University Student Portal</title>
+  <meta name="description" content="Weekly academic calendar with classes, labs, quizzes and assignment deadlines.">
+  <link rel="icon" href="images/kicsitLogo.svg" type="image/svg+xml">
+  <script src="js/theme-init.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <span>Fall Semester 2026</span>
+      <span>Student Services Desk: Monday to Friday, 8:30 am to 4:30 pm</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html" aria-label="KICSIT University Student Portal, home">
+        <img class="brand__mark" src="images/kicsitLogo.svg" alt="" width="40" height="40">
+        <span>
+          <span class="brand__name">KICSIT University</span>
+          <span class="brand__sub">Student Portal</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="primaryNav">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="sr-only">Menu</span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="schedule.html" aria-current="page">Schedule</a></li>
+          <li><a href="tasks.html">Tasks</a></li>
+          <li><a href="profile.html">Profile</a></li>
+        </ul>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false">Dark mode</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="page-header">
+      <div class="container">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li aria-current="page">Schedule</li>
+          </ol>
+        </nav>
+        <h1>Class schedule and academic calendar</h1>
+        <p>Lectures, labs, quizzes and assignment deadlines for Fall 2026 on one weekly calendar. Assignments come from your task manager, so anything you add there appears here.</p>
+      </div>
+    </div>
+
+    <section class="section section--flush-bottom" aria-labelledby="summaryTitle">
+      <div class="container">
+        <h2 class="sr-only" id="summaryTitle">Week summary</h2>
+        <div class="grid grid--tight" id="weekSummary"></div>
+      </div>
+    </section>
+
+    <section class="section section--tight-top" aria-labelledby="calendarTitle">
+      <div class="container">
+        <h2 class="sr-only" id="calendarTitle">Weekly calendar</h2>
+
+        <div class="card cal-toolbar">
+          <div class="cal-toolbar__row">
+            <div class="week-nav" role="group" aria-label="Choose week">
+              <button class="btn btn--outline btn--sm" type="button" id="weekPrev">Previous week</button>
+              <span class="week-nav__label" id="weekLabel" aria-live="polite"></span>
+              <button class="btn btn--outline btn--sm" type="button" id="weekNext">Next week</button>
+              <button class="btn btn--primary btn--sm" type="button" id="weekToday">This week</button>
+            </div>
+            <div class="chip-group" id="typeFilter" role="group" aria-label="Show on calendar">
+              <button class="chip" type="button" data-type="all" aria-pressed="true">Everything</button>
+              <button class="chip" type="button" data-type="class" aria-pressed="false">Classes</button>
+              <button class="chip" type="button" data-type="quiz" aria-pressed="false">Quizzes</button>
+              <button class="chip" type="button" data-type="assignment" aria-pressed="false">Assignments</button>
+              <button class="chip" type="button" data-type="event" aria-pressed="false">Events</button>
+            </div>
+          </div>
+          <div class="legend" aria-label="Colour key">
+            <span class="legend__item"><span class="badge badge--info">Lecture</span></span>
+            <span class="legend__item"><span class="badge badge--success">Lab</span></span>
+            <span class="legend__item"><span class="badge badge--warning">Quiz</span></span>
+            <span class="legend__item"><span class="badge badge--danger">Due</span> assignment deadline</span>
+            <span class="legend__item"><span class="badge badge--neutral">Event</span></span>
+          </div>
+        </div>
+
+        <div class="cal" id="calendarGrid"></div>
+        <div class="grid agenda" id="calendarAgenda"></div>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="deadlinesTitle">
+      <div class="container">
+        <div class="grid grid--align-start">
+          <div class="col-lg-7">
+            <div class="card">
+              <h2 class="card__title" id="deadlinesTitle">Upcoming quizzes and assignments</h2>
+              <ul class="compact-list" id="deadlineList"></ul>
+              <p class="mt-4"><a class="btn btn--outline btn--sm" href="tasks.html">Manage assignments</a></p>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="card">
+              <h2 class="card__title">Courses and instructors</h2>
+              <ul class="compact-list" id="courseKey"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__main">
+      <div class="grid">
+        <div class="col-md-6 col-lg-4">
+          <a class="brand" href="index.html" aria-label="KICSIT University Student Portal, home">
+            <img class="brand__mark" src="images/kicsitLogo.svg" alt="" width="40" height="40">
+            <span>
+              <span class="brand__name">KICSIT University</span>
+              <span class="brand__sub">Student Portal</span>
+            </span>
+          </a>
+          <p>Maintained by the Office of the Registrar. The portal brings course records, class timings, notices and coursework deadlines together for enrolled students.</p>
+        </div>
+
+        <div class="col-sm-6 col-lg-2">
+          <h2 class="footer-title">Portal pages</h2>
+          <ul class="footer-list">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="schedule.html">Class schedule</a></li>
+            <li><a href="tasks.html">Task manager</a></li>
+            <li><a href="profile.html">Student profile</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <h2 class="footer-title">Contact</h2>
+          <address>
+            Office of the Registrar<br>
+            Administration Block, Room 5<br>
+            Y-Cross, Kahuta, Rawalpindi<br>
+            Phone: +92 51 000 0000<br>
+            Email: <a href="mailto:registrar@KICSIT.example">registrar@KICSIT.example</a>
+          </address>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <h2 class="footer-title">Office hours</h2>
+          <ul class="footer-list footer-list--plain">
+            <li><span>Registrar</span><span>8:30 am to 4:30 pm</span></li>
+            <li><span>Accounts</span><span>9:00 am to 3:00 pm</span></li>
+            <li><span>Examination Office</span><span>9:00 am to 4:00 pm</span></li>
+            <li><span>Library</span><span>8:00 am to 10:00 pm</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <div class="container">
+        <span>&copy; <span id="currentYear">2026</span> KICSIT University. All rights reserved.</span>
+        <span>Student Portal front-end prototype, version 1.0</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/schedule.js"></script>
+</body>
+</html>

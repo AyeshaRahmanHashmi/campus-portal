@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tasks | KICSIT University Student Portal</title>
+  <meta name="description" content="Assignment and task manager. Add, complete and delete coursework tasks, saved in your browser.">
+  <link rel="icon" href="images/kicsitLogo.svg" type="image/svg+xml">
+  <script src="js/theme-init.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <span>Fall Semester 2026</span>
+      <span>Student Services Desk: Monday to Friday, 8:30 am to 4:30 pm</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html" aria-label="KICSIT University Student Portal, home">
+        <img class="brand__mark" src="images/kicsitLogo.svg" alt="" width="40" height="40">
+        <span>
+          <span class="brand__name">KICSIT University</span>
+          <span class="brand__sub">Student Portal</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="primaryNav">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="sr-only">Menu</span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="tasks.html" aria-current="page">Tasks</a></li>
+          <li><a href="profile.html">Profile</a></li>
+        </ul>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false">Dark mode</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="page-header">
+      <div class="container">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li aria-current="page">Tasks</li>
+          </ol>
+        </nav>
+        <h1>Assignment and task manager</h1>
+        <p>Record coursework with a due date and priority. Your list is saved in this browser and will still be here after you refresh or return later.</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid grid--align-start">
+          <div class="col-lg-4">
+            <form class="card" id="taskForm" novalidate aria-labelledby="taskFormTitle">
+              <h2 class="card__title" id="taskFormTitle">Add a task</h2>
+              <div class="grid grid--tight">
+                <div class="field">
+                  <label for="taskTitle">Task title <span class="req" aria-hidden="true">*</span></label>
+                  <input id="taskTitle" name="title" type="text" maxlength="100" placeholder="For example: Submit lab report 2" required aria-describedby="taskTitleError">
+                  <p class="field__error" id="taskTitleError" aria-live="polite"></p>
+                </div>
+                <div class="field">
+                  <label for="taskCourse">Course <span class="req" aria-hidden="true">*</span></label>
+                  <select id="taskCourse" name="course" required aria-describedby="taskCourseError"></select>
+                  <p class="field__error" id="taskCourseError" aria-live="polite"></p>
+                </div>
+                <div class="field">
+                  <label for="taskDue">Due date <span class="req" aria-hidden="true">*</span></label>
+                  <input id="taskDue" name="due" type="date" required aria-describedby="taskDueError">
+                  <p class="field__error" id="taskDueError" aria-live="polite"></p>
+                </div>
+                <div class="field">
+                  <label for="taskPriority">Priority</label>
+                  <select id="taskPriority" name="priority">
+                    <option value="High">High</option>
+                    <option value="Medium" selected>Medium</option>
+                    <option value="Low">Low</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-actions">
+                <button class="btn btn--primary" type="submit">Add task</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-lg-8">
+            <section class="card" aria-labelledby="taskListTitle">
+              <h2 class="card__title" id="taskListTitle">Your tasks</h2>
+              <div class="toolbar__meta" style="margin-top:0; padding-top:0; border-top:0; margin-bottom:1rem;">
+                <div class="chip-group" id="taskFilter" role="group" aria-label="Filter tasks">
+                  <button class="chip" type="button" data-task-filter="all" aria-pressed="true">All</button>
+                  <button class="chip" type="button" data-task-filter="pending" aria-pressed="false">Pending</button>
+                  <button class="chip" type="button" data-task-filter="completed" aria-pressed="false">Completed</button>
+                </div>
+                <button class="btn btn--outline btn--sm" type="button" id="clearCompleted">Clear completed</button>
+              </div>
+              <p class="text-muted" id="taskSummary" aria-live="polite"></p>
+              <ul class="task-list mt-4" id="taskList" style="margin-top:1rem;"></ul>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__main">
+      <div class="grid">
+        <div class="col-md-6 col-lg-4">
+          <a class="brand" href="index.html" aria-label="KICSIT University Student Portal, home">
+            <img class="brand__mark" src="images/kicsitLogo.svg" alt="" width="40" height="40">
+            <span>
+              <span class="brand__name">KICSIT University</span>
+              <span class="brand__sub">Student Portal</span>
+            </span>
+          </a>
+          <p>Maintained by the Office of the Registrar. The portal brings course records, class timings, notices and coursework deadlines together for enrolled students.</p>
+        </div>
+
+        <div class="col-sm-6 col-lg-2">
+          <h2 class="footer-title">Portal pages</h2>
+          <ul class="footer-list">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="schedule.html">Class schedule</a></li>
+            <li><a href="tasks.html">Task manager</a></li>
+            <li><a href="profile.html">Student profile</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <h2 class="footer-title">Contact</h2>
+          <address>
+            Office of the Registrar<br>
+            Administration Block, Room 5<br>
+            Y-Cross, Kahuta, Rawalpindi<br>
+            Phone: +92 51 000 0000<br>
+            Email: <a href="mailto:registrar@KICSIT.example">registrar@KICSIT.example</a>
+          </address>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <h2 class="footer-title">Office hours</h2>
+          <ul class="footer-list footer-list--plain">
+            <li><span>Registrar</span><span>8:30 am to 4:30 pm</span></li>
+            <li><span>Accounts</span><span>9:00 am to 3:00 pm</span></li>
+            <li><span>Examination Office</span><span>9:00 am to 4:00 pm</span></li>
+            <li><span>Library</span><span>8:00 am to 10:00 pm</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <div class="container">
+        <span>&copy; <span id="currentYear">2026</span> KICSIT University. All rights reserved.</span>
+        <span>Student Portal front-end prototype, version 1.0</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/tasks.js"></script>
+</body>
+</html>
